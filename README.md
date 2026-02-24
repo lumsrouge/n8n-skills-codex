@@ -1,5 +1,7 @@
 # n8n-skills
 
+This repository is forked from the original n8n-skills repo. It contains the same stuff but makes also compatible with Codex
+
 **Expert Claude Code skills for building flawless n8n workflows using the n8n-mcp MCP server**
 
 [![GitHub stars](https://img.shields.io/github/stars/czlonkowski/n8n-skills?style=social)](https://github.com/czlonkowski/n8n-skills)
