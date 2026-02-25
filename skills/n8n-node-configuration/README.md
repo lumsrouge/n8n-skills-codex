@@ -12,7 +12,7 @@ Expert guidance for operation-aware node configuration with property dependencie
 
 Node configuration patterns:
 
-- get_node_essentials is the primary discovery tool (18s avg from search → essentials)
+- get_node (detail="standard") is the primary discovery tool (18s avg from search → essentials)
 - 91.7% success rate with essentials-based configuration
 - 56 seconds average between configuration edits
 
@@ -34,9 +34,9 @@ Node configuration patterns:
    - Understanding dependency chains
 
 3. **Progressive Discovery**
-   - Start with get_node_essentials (91.7% success)
+   - Start with get_node (detail="standard") (91.7% success)
    - Escalate to get_property_dependencies if needed
-   - Use get_node_info only when necessary
+   - Use get_node (detail="full") only when necessary
    - Right tool for right job
 
 4. **Configuration Workflow**
@@ -60,7 +60,7 @@ n8n-node-configuration/
 │   - Configuration philosophy (progressive disclosure)
 │   - Core concepts (operation-aware, dependencies)
 │   - Configuration workflow (8-step process)
-│   - get_node_essentials vs get_node_info
+│   - get_node (detail="standard") vs get_node (detail="full")
 │   - Property dependencies deep dive
 │   - Common node patterns (4 categories)
 │   - Operation-specific examples
@@ -108,7 +108,7 @@ Configuration metrics:
 
 | Metric | Value | Insight |
 |---|---|---|
-| get_node_essentials | Primary tool | Most popular discovery pattern |
+| get_node (detail="standard") | Primary tool | Most popular discovery pattern |
 | Success rate (essentials) | 91.7% | Essentials sufficient for most |
 | Avg time search→essentials | 18 seconds | Fast discovery workflow |
 | Avg time between edits | 56 seconds | Iterative configuration |
@@ -117,19 +117,19 @@ Configuration metrics:
 
 **Most common discovery pattern**:
 ```
-search_nodes → get_node_essentials (18s average)
+search_nodes → get_node (detail="standard") (18s average)
 ```
 
 **Configuration cycle**:
 ```
-get_node_essentials → configure → validate → iterate (56s avg per edit)
+get_node (detail="standard") → configure → validate → iterate (56s avg per edit)
 ```
 
 ## Key Insights
 
 ### 1. Progressive Disclosure Works
 
-**91.7% success rate** with get_node_essentials proves most configurations don't need full schema.
+**91.7% success rate** with get_node (detail="standard") proves most configurations don't need full schema.
 
 **Strategy**:
 1. Start with essentials
@@ -179,7 +179,7 @@ Example: HTTP Request
 
 ```javascript
 // Step 1: Get essentials
-const info = get_node_essentials({
+const info = get_node (detail="standard")({
   nodeType: "nodes-base.slack"
 });
 
@@ -192,7 +192,7 @@ const info = get_node_essentials({
 }
 
 // Step 3: Validate
-validate_node_operation({...});
+validate_node({...});
 // ✅ Valid!
 ```
 
@@ -244,7 +244,7 @@ get_property_dependencies({
 }
 
 // Get essentials for update operation
-get_node_essentials({nodeType: "nodes-base.slack"});
+get_node({nodeType: "nodes-base.slack", detail: "standard"});
 // Shows: messageId required, channel optional
 
 // Correct config
@@ -262,7 +262,7 @@ get_node_essentials({nodeType: "nodes-base.slack"});
 - "how to configure"
 - "what fields are required"
 - "property dependencies"
-- "get_node_essentials vs get_node_info"
+- "get_node (detail="standard") vs get_node (detail="full")"
 - "operation-specific"
 - "field not visible"
 
@@ -315,14 +315,14 @@ get_node_essentials({nodeType: "nodes-base.slack"});
 ## Success Metrics
 
 **Before this skill**:
-- Using get_node_info for everything (slow, overwhelming)
+- Using get_node (detail="full") for everything (slow, overwhelming)
 - Not understanding property dependencies
 - Confused when fields appear/disappear
 - Not aware of operation-specific requirements
 - Trial and error configuration
 
 **After this skill**:
-- Start with get_node_essentials (91.7% success)
+- Start with get_node (detail="standard") (91.7% success)
 - Understand displayOptions mechanism
 - Predict field visibility based on dependencies
 - Check requirements when changing operations
@@ -346,7 +346,7 @@ get_node_essentials({nodeType: "nodes-base.slack"});
 ## Related Documentation
 
 - **n8n-mcp MCP Server**: Provides discovery tools
-- **n8n Node API**: get_node_essentials, get_property_dependencies, get_node_info
+- **n8n Node API**: get_node (detail="standard"), get_property_dependencies, get_node (detail="full")
 - **n8n Schema**: displayOptions mechanism, property definitions
 
 ## Version History

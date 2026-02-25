@@ -1,6 +1,6 @@
 ---
 name: n8n-code-javascript
-description: Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$node syntax, making HTTP requests with $helpers, working with dates using DateTime, troubleshooting Code node errors, or choosing between Code node modes.
+description: JavaScript Code-node guide for n8n in Codex. Trigger when users need JS snippets, $input/$json access patterns, $helpers HTTP calls, DateTime usage, or Code node troubleshooting.
 ---
 
 # JavaScript Code Node
@@ -644,8 +644,8 @@ Consider other nodes when:
 
 **n8n MCP Tools Expert**:
 - How to find Code node: `search_nodes({query: "code"})`
-- Get configuration help: `get_node_essentials("nodes-base.code")`
-- Validate code: `validate_node_operation()`
+- Get configuration help: `get_node({nodeType: "nodes-base.code", detail: "standard"})`
+- Validate code: `validate_node()`
 
 **n8n Node Configuration**:
 - Mode selection (All Items vs Each Item)

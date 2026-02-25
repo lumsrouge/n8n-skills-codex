@@ -1,6 +1,6 @@
 ---
 name: n8n-code-python
-description: Write Python code in n8n Code nodes. Use when writing Python in n8n, using _input/_json/_node syntax, working with standard library, or need to understand Python limitations in n8n Code nodes.
+description: Python Code-node guide for n8n in Codex. Trigger when users request Python snippets, _input/_json access, stdlib-only approaches, or clarification of Python limitations in n8n Code nodes.
 ---
 
 # Python Code Node (Beta)
@@ -690,8 +690,8 @@ print(f"First item: {items[0] if items else 'None'}")
 
 **n8n MCP Tools Expert**:
 - How to find Code node: `search_nodes({query: "code"})`
-- Get configuration help: `get_node_essentials("nodes-base.code")`
-- Validate code: `validate_node_operation()`
+- Get configuration help: `get_node({nodeType: "nodes-base.code", detail: "standard"})`
+- Validate code: `validate_node()`
 
 **n8n Node Configuration**:
 - Mode selection (All Items vs Each Item)
