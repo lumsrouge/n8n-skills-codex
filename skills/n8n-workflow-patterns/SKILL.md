@@ -1,11 +1,24 @@
 ---
 name: n8n-workflow-patterns
-description: Proven workflow architectural patterns from real n8n workflows. Use when building new workflows, designing workflow structure, choosing workflow patterns, planning workflow architecture, or asking about webhook processing, HTTP API integration, database operations, AI agent workflows, or scheduled tasks.
+description: Codex workflow architecture playbook for n8n. Trigger when users ask to design/build workflows, choose node sequencing, or implement webhook/API/database/AI/scheduled automation patterns.
 ---
 
 # n8n Workflow Patterns
 
 Proven architectural patterns for building n8n workflows.
+
+---
+
+## Codex Routing Notes
+
+When users ask to **build** a workflow end-to-end, pair this skill with:
+
+- `n8n-mcp-tools-expert` for node discovery + tool-call sequencing
+- `n8n-node-configuration` for operation-specific parameters
+- `n8n-expression-syntax` for expression mapping
+- `n8n-validation-expert` for fix/re-validate loops
+
+Use this skill to choose the architecture first, then hand off to those specialist skills for implementation details.
 
 ---
 

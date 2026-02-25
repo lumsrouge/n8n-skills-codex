@@ -84,7 +84,7 @@ Teaches how to use n8n-mcp MCP server tools correctly for efficient workflow bui
 ## What You'll Learn
 
 - Correct nodeType formats (nodes-base.* for search tools)
-- When to use get_node_essentials vs get_node_info
+- When to use get_node (detail="standard") vs get_node (detail="full")
 - How to use validation profiles effectively
 - Smart parameters for multi-output nodes (IF/Switch)
 - Common tool usage patterns and workflows

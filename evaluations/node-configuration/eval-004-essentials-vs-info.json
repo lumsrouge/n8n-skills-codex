@@ -1,13 +1,15 @@
 {
   "id": "node-config-004",
-  "skills": ["n8n-node-configuration"],
-  "query": "Should I use get_node_essentials or get_node_info when configuring a new node? What's the difference?",
+  "skills": [
+    "n8n-node-configuration"
+  ],
+  "query": "Should I use get_node with detail='standard' or detail='full' when configuring a new node? What's the difference?",
   "expected_behavior": [
-    "Recommends get_node_essentials for configuration (91.7% success rate)",
-    "Explains essentials provides required fields and options",
-    "Explains get_node_info provides full schema (use when essentials insufficient)",
-    "Suggests starting with essentials, escalate to info if needed",
-    "May provide telemetry insight (essentials used 9,835 times)",
+    "Recommends get_node detail='standard' for configuration-first workflows",
+    "Explains standard includes required fields and core options",
+    "Explains detail='full' returns complete schema (use when standard is insufficient)",
+    "Suggests starting with detail='standard', escalate to detail='full' if needed",
+    "May provide telemetry/performance insight from skill guidance",
     "References progressive disclosure approach"
   ]
 }

@@ -311,11 +311,11 @@ Create as needed:
 // Node discovery
 search_nodes({query: "keyword"})
 list_nodes({category: "trigger"})
-get_node_essentials({nodeType: "nodes-base.webhook"})
+get_node({nodeType: "nodes-base.webhook", detail: "standard"})
 
 // Validation
-validate_node_minimal({nodeType: "nodes-base.slack", config: {}})
-validate_node_operation({nodeType: "nodes-base.slack", config: {...}, profile: "runtime"})
+validate_node({nodeType: "nodes-base.slack", config: {}, mode: "minimal"})
+validate_node({nodeType: "nodes-base.slack", config: {...}, profile: "runtime"})
 
 // Templates
 search_templates({query: "webhook"})

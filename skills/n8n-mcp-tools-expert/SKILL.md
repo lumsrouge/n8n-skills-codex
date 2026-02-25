@@ -1,11 +1,26 @@
 ---
 name: n8n-mcp-tools-expert
-description: Expert guide for using n8n-mcp MCP tools effectively. Use when searching for nodes, validating configurations, accessing templates, managing workflows, or using any n8n-mcp tool. Provides tool selection guidance, parameter formats, and common patterns.
+description: Codex-first guide for n8n-mcp tool usage. Trigger when users ask to find nodes, inspect node parameters, validate configs, update workflows, deploy templates, or debug n8n-mcp tool calls.
 ---
 
 # n8n MCP Tools Expert
 
 Master guide for using n8n-mcp MCP server tools to build workflows.
+
+---
+
+## Codex Execution Workflow (Recommended)
+
+Use this default sequence in Codex for reliable results:
+
+1. **Discover**: `search_nodes` with user intent keywords
+2. **Inspect**: `get_node` with default detail (`standard`)
+3. **Configure**: draft minimal config for the selected operation
+4. **Validate**: `validate_node` with explicit profile (`runtime` by default)
+5. **Implement**: `n8n_create_workflow` or `n8n_update_partial_workflow`
+6. **Re-validate**: `validate_workflow` after each meaningful edit
+
+Escalate to `get_node(..., detail: "full")` only when standard/docs mode does not resolve a config issue.
 
 ---
 
@@ -622,7 +637,7 @@ validate_node({nodeType: "nodes-base.webhook", config: {}, mode: "minimal"})
 2. get_node → understand config
 3. validate_node → check config
 4. n8n_create_workflow → build
-5. n8n_validate_workflow → verify
+5. validate_workflow OR n8n_validate_workflow → verify
 6. n8n_update_partial_workflow → iterate
 7. activateWorkflow → go live!
 

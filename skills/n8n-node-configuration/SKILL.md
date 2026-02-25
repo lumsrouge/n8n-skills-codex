@@ -1,6 +1,6 @@
 ---
 name: n8n-node-configuration
-description: Operation-aware node configuration guidance. Use when configuring nodes, understanding property dependencies, determining required fields, choosing between get_node detail levels, or learning common configuration patterns by node type.
+description: Node-configuration expert for Codex + n8n-mcp. Trigger when users need required fields, operation-specific parameters, dependency rules, or fixes for invalid node configs.
 ---
 
 # n8n Node Configuration

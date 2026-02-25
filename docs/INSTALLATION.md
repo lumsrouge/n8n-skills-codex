@@ -36,9 +36,10 @@ npm install -g n8n-mcp
 
 **Note**: `N8N_API_URL` and `N8N_API_KEY` are optional but enable workflow creation/management tools.
 
-### 2. Claude Access
+### 2. Assistant Access
 
 You need one of:
+- **Codex CLI**
 - **Claude Code** (desktop application)
 - **Claude.ai** (web interface)
 - **Claude API** (via SDK)
@@ -47,7 +48,30 @@ You need one of:
 
 ## Installation Methods
 
-### Method 1: Claude Code (Recommended)
+### Method 1: Codex CLI
+
+**Step 1**: Clone the repository
+```bash
+git clone https://github.com/czlonkowski/n8n-skills.git
+cd n8n-skills
+```
+
+**Step 2**: Copy skills to Codex skills directory
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -r skills/* "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+**Step 3**: Verify installation
+```bash
+ls "${CODEX_HOME:-$HOME/.codex}/skills/"
+# Should show: n8n-expression-syntax, n8n-mcp-tools-expert, etc.
+```
+
+---
+
+### Method 2: Claude Code
 
 **Step 1**: Clone the repository
 ```bash
@@ -81,7 +105,7 @@ ls ~/.claude/skills/
 
 ---
 
-### Method 2: Claude.ai (Web Interface)
+### Method 3: Claude.ai (Web Interface)
 
 **Step 1**: Download skill folders
 
@@ -95,6 +119,8 @@ zip -r n8n-mcp-tools-expert.zip n8n-mcp-tools-expert/
 zip -r n8n-workflow-patterns.zip n8n-workflow-patterns/
 zip -r n8n-validation-expert.zip n8n-validation-expert/
 zip -r n8n-node-configuration.zip n8n-node-configuration/
+zip -r n8n-code-javascript.zip n8n-code-javascript/
+zip -r n8n-code-python.zip n8n-code-python/
 ```
 
 **Step 3**: Upload to Claude.ai
@@ -112,11 +138,11 @@ In a new conversation, type:
 "List my active skills"
 ```
 
-You should see all 5 n8n skills listed.
+You should see all 7 n8n skills listed.
 
 ---
 
-### Method 3: Claude API / SDK
+### Method 4: Claude API / SDK
 
 **Step 1**: Install via package manager
 
@@ -167,6 +193,20 @@ function loadSkillsFromDirectory(dir: string) {
 
 ## Verification
 
+### Codex CLI Quick Check
+
+Run these commands after installation:
+
+```bash
+# Ensure all 7 skill directories are installed
+ls -1 "${CODEX_HOME:-$HOME/.codex}/skills/" | rg '^n8n-'
+
+# Confirm each skill has a SKILL.md entrypoint
+find "${CODEX_HOME:-$HOME/.codex}/skills" -maxdepth 2 -name SKILL.md
+```
+
+Expected result: 7 `n8n-*` directories and matching `SKILL.md` files.
+
 ### Test Installation
 
 **1. Check MCP server availability**
@@ -196,7 +236,7 @@ Webhook data is under $json.body...
 Ask Claude: "Build and validate a webhook to Slack workflow"
 ```
 
-Expected: All 5 skills should activate and work together.
+Expected: relevant skills should activate and work together.
 
 ---
 

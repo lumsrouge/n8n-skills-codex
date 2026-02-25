@@ -1,6 +1,6 @@
 # n8n-skills
 
-This repository is forked from the original n8n-skills repo. It contains the same stuff but makes also compatible with Codex
+This repository is forked from the original n8n-skills repo and adapted for Codex environments.
 
 **Expert Claude Code skills for building flawless n8n workflows using the n8n-mcp MCP server**
 
@@ -130,8 +130,23 @@ Write Python code in n8n Code nodes with proper limitations awareness.
 ### Prerequisites
 
 1. **n8n-mcp MCP server** installed and configured ([Installation Guide](https://github.com/czlonkowski/n8n-mcp))
-2. **Claude Code**, Claude.ai, or Claude API access
+2. **Codex CLI**, Claude Code, Claude.ai, or Claude API access
 3. `.mcp.json` configured with n8n-mcp server
+
+### Codex CLI
+
+```bash
+# Clone your fork
+git clone https://github.com/<your-user>/n8n-skills.git
+cd n8n-skills
+
+# Install skills into Codex home (falls back to ~/.codex)
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -r skills/* "${CODEX_HOME:-$HOME/.codex}/skills/"
+
+# Optional quick verification
+ls "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
 
 ### Claude Code
 

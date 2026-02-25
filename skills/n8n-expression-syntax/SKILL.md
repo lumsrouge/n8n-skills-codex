@@ -1,6 +1,6 @@
 ---
 name: n8n-expression-syntax
-description: Validate n8n expression syntax and fix common errors. Use when writing n8n expressions, using {{}} syntax, accessing $json/$node variables, troubleshooting expression errors, or working with webhook data in workflows.
+description: n8n expression syntax guardrails for Codex. Trigger when users ask for {{ }} expressions, $json/$node references, webhook body access, or fixes for expression-evaluation errors.
 ---
 
 # n8n Expression Syntax
